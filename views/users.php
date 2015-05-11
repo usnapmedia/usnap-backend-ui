@@ -24,11 +24,11 @@
 
           <tr>
             <td><img src="http://fakeimg.pl/100x100/00CED1/FFF/?text="></td>
-            <td><?=$user->name?></td>
+            <td><?=$user->username?></td>
             <td><?=$user->email?></td>
-            <td><? $meta = json_decode($user->meta,true); echo $meta['birthday']?></td>
+            <td><? //$meta = json_decode($user->meta,true); echo $meta['birthday']?></td>
             <td>46</td>
-            <td><?=$user->contribution?></td>
+            <td><? //=$user->contribution?></td>
           </tr>
        <? } ?>
           
