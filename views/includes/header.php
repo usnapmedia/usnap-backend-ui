@@ -12,7 +12,7 @@
     <body>
 
 	<ul id="slide-out" class="side-nav fixed">
-		<img src="img/usnap-logo.png" class="responsive-img" alt="">
+		<!-- <img src="img/usnap-logo.png" class="responsive-img" alt=""> -->
 		<hr>
 		    <li class="no-padding">
          <ul class="collapsible collapsible-accordion">
