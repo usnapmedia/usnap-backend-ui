@@ -13,7 +13,7 @@
     	<h5>Company Profile</h5>
     	<div class="row">
 	    	<div class="input-field col s6">
-	          <input id="company-name" type="text" class="validate" value="<?=$data->name?>">
+	          <input id="company-name" type="text" class="validate companyName" value="<?=$data->name?>">
 	          <label for="company-name">Company Name</label>
 	        </div>
         </div>
@@ -54,7 +54,7 @@
 	  	<h5>Media</h5>
 	  	<div class="row">
 	    	<div class="input-field col s6">
-	          <input id="company-logo-url" type="text" class="validate" value="<?=$data->watermark?>">
+	          <input id="company-logo-url" type="text" class="validate watermarkUrl" value="<?=$data->watermark?>">
 	          <label for="company-logo-url">Company Logo URL</label>
 	        </div>
         </div>

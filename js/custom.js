@@ -83,8 +83,21 @@ function campaignTemplate(campaign) {
 
 
 $('#saveSettings').click(function(){
-	Materialize.toast('Settings Saved', 2000)
-})
+	
+    var api_key = 'joey1234';
+    var watermark = $('.watermarkUrl').val();
+    var name = $('.companyName').val();
+    
+    postUrl = "http://d.tanios.ca/usnap/api/v1/admin/settings/"+api_key;
+    console.log(watermark,api_key,postUrl);
+    var sendIt = $.post( postUrl, {'watermark':watermark,'name':name});
+
+        sendIt.done(function( data ) {
+            Materialize.toast('Settings Saved', 2000);
+            console.log(data); 
+        });
+
+});
 
 $('#sendCampaign').click(function(event){
 		event.preventDefault();
@@ -110,16 +123,44 @@ $('#sendCampaign').click(function(event){
 
 var pusher = new Pusher('3cb56cac36379ca8723b');
 var channel = pusher.subscribe('live-feed');
+
 channel.bind('new-image', function(data) {
   $('.live-table').prepend('<tr><td><img  class="materialboxed" width="200" src="'+data.image+'"></td><td>'+data.email+'</td><td></td></tr>');
+  var currentMedia = $('.currentMedia').text();
+  currentMedia = parseInt(currentMedia);
+  $('.currentMedia').html(currentMedia+1);
 });
+
+channel.bind('new-user', function(data) {
+  var currentUsers = $('.currentUsers').text();
+  currentUsers = parseInt(currentUsers);
+  $('.currentUsers').html(currentUsers+1);
+});
+
+channel.bind('update-social', function(data) {
+  $('.currentAnalytics').html(data.sum);
+});
+
 
 channel.bind('new-campaign', function(data) {
   $('.campaign-table').prepend('<tr><td>'+data.name+'</td><td>'+data.desc+'</td><td>5</td></tr>');
 });
 
 $('.moderate').click(function(){
-   console.log( $(this).data('status'), $('.media-moderated').data('id') );
-})
+        var now = $(this);
+        console.log( $(this).data('status'), $(this).data('id') );
+        var status = $(this).data('status');
+        var image = $(this).data('id');
+        postUrl = "http://d.tanios.ca/usnap/api/v1/admin/moderate/update/"+image;
+        var sendIt = $.post( postUrl, {'status':status});
+
+        sendIt.done(function( data ) {
+            now.parent().parent().parent().hide();
+            var count = $('.count').text();
+            count = parseInt(count);
+            $('.count').html(count-1);
+            console.log(data); 
+        });
+});
 
 

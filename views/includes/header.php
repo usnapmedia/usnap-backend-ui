@@ -12,8 +12,8 @@
     <body>
 
 	<ul id="slide-out" class="side-nav fixed">
-		<!-- <img src="img/usnap-logo.png" class="responsive-img" alt=""> -->
-		<hr>
+		<!-- <img src="http://d.tanios.ca/usnap/api/uploads/logo/usnap.png" width="100" class="responsive-img" alt=""> -->
+		<!-- <hr> -->
 		    <li class="no-padding">
          <ul class="collapsible collapsible-accordion">
             <li><a class="collapsible-header waves-effect waves-teal">Campaigns</a>
@@ -31,7 +31,7 @@
         <li><a href="users">Users</a></li>
         <li><a href="analytics">Analytics</a></li>
         <li><a href="settings">Settings</a></li>
-        <li><a href="settings">Extras</a></li>
+        <!-- <li><a href="extras">Extras</a></li> -->
         
 	</ul>
         

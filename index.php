@@ -12,11 +12,17 @@ Flight::route('/@page', function($page){
 	} else if ($page == 'users'){
 		$users = getUsers($api_key);
 		$data =	$users->response;
+	} else if ($page == 'analytics'){
+		$analytics = getAnalytics($api_key);
+		$data =	$analytics->counts;
 	} else if ($page == 'feed'){
 		$data =	getFeed($api_key);
 	} else if ($page == 'campaigns'){
 		$campaigns = getCampaigns($api_key);
 		$data =	$campaigns->response;
+	} else if ($page == 'moderate'){
+		$moderate = getModeration($api_key);
+		$data =	$moderate;
 	} else {
 		$data = '';
 	}
@@ -48,6 +54,16 @@ function getFeed($api_key){
 }
 function getCampaigns($api_key){
 	$json = file_get_contents('http://d.tanios.ca/usnap/api/v1/campaigns');
+	$obj = json_decode($json);
+	return $obj;
+}
+function getAnalytics($api_key){
+	$json = file_get_contents('http://d.tanios.ca/usnap/api/v1/admin/analytics');
+	$obj = json_decode($json);
+	return $obj;
+}
+function getModeration($api_key){
+	$json = file_get_contents('http://api.usnap.com/v1/admin/moderate/feed/');
 	$obj = json_decode($json);
 	return $obj;
 }

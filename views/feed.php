@@ -8,9 +8,8 @@
     	 <div class="row">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s3"><a href="#test1">TOP</a></li>
         <li class="tab col s3"><a href="#test2">LIVE</a></li>
-       
+        <li class="tab col s3"><a href="#test1">TOP</a></li>
       </ul>
     </div>
     <div id="test1" class="col s12">
@@ -27,7 +26,7 @@
         <tbody>
           <? foreach ($data['top']->response as $image) { ?>
 			 <tr>
-            <td><img  class="materialboxed" width="200" src="<?=$image->url?>"></td>
+            <td><img  class="materialboxed" width="200" src="<?=$image->watermark_url?>"></td>
             <td><?=$image->email?></td>
             <td><?=$image->fb_likes?></td>
           </tr>
@@ -53,7 +52,7 @@
         <tbody class="live-table">
 		<? foreach ($data['live']->response as $image) { ?>
 			<tr>
-            <td><img  class="materialboxed" width="200" src="<?=$image->url?>"></td>
+            <td><img  class="materialboxed" width="200" src="<?=$image->watermark_url?>"></td>
             <td><?=$image->email?></td>
             <td><?=$image->fb_likes?></td>
           </tr>
