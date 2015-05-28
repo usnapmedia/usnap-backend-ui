@@ -12,7 +12,7 @@
     <body>
 
 	<ul id="slide-out" class="side-nav fixed">
-		<!-- <img src="http://d.tanios.ca/usnap/api/uploads/logo/usnap.png" width="100" class="responsive-img" alt=""> -->
+		<img src="http://api.usnap.com/uploads/logo/usnap.png" width="100" class="responsive-img" alt="">
 		<!-- <hr> -->
 		    <li class="no-padding">
          <ul class="collapsible collapsible-accordion">
